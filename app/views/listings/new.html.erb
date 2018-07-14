@@ -1,0 +1,53 @@
+<%= render 'partial/navbar' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="text-center">
+						<span style="font-size:24px;">作品を掲載する</span>
+					</div>
+				</div>
+			
+				<div class="panel-body">			
+					<!-- ここからフォーム -->
+					<%= form_for @listing do |f| %>
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>映像タイプ</label>
+									<%= f.select :movie_type, [["映画","映画"], ["ショートフィルム","ショートフィルム"], ["PV","PV"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>映像の種類</label>
+									<%= f.select :movie_category, [["オリジナル","オリジナル"], ["アクション","アクション"], ["冒険","冒険"], ["アニメ","アニメ"], ["伝記","伝記"], ["コメディ","コメディ"], ["ドキュメンタリー","ドキュメンタリー"], ["ファンタジー","ファンタジー"], ["SF","SF"], ["ホラー","ホラー"],["その他","その他"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+                      <div class="row">
+                          <div class="col-md-12 select">
+                              <div class="form-group">
+                                <label>映像のアップロード</label>
+                                <%= f.file_field :movie_file %>
+                                </div>
+                            </div>
+                        </div>
+						<br>
+						<div class="actions">
+							<%= f.submit "Save", class: "btn btn-danger" %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
